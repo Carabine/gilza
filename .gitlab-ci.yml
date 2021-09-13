@@ -1,0 +1,41 @@
+before_script:
+ - export PATH=$PATH:/usr/local/bin
+stages:
+ - deploy-stage
+ - deploy-prod
+
+deploy-stage:
+  stage: deploy-stage
+  script:
+#    - export
+    - echo $CI_JOB_ID
+    - rm -rf /var/www/gilza/backend
+    - cp -R ~/$CI_PROJECT_DIR /var/www/gilza/
+    - cd /var/www/gilza/backend/
+    - cp /var/www/gilza/devops/env /var/www/gilza/backend/.env
+    - npm install
+    - pm2 delete -s stage-backend || ':';
+    - pm2 start index.js --name "stage-backend" --watch true
+  tags:
+    - gilza-stage
+  only:
+    - stage
+
+deploy-prod:
+  stage: deploy-prod
+  script:
+#    - export
+    - echo $CI_PROJECT_DIR
+    - echo $CI_JOB_ID
+    - rm -rf /var/www/gilza/backend
+    - cp -v -R ~/$CI_PROJECT_DIR /var/www/gilza/
+    - cd /var/www/gilza/backend/
+    - cp /var/www/gilza/secret/env /var/www/gilza/backend/.env
+    - npm install
+    - pm2 delete -s gilza-backend || ':';
+    - pm2 start index.js --name "gilza-backend" --watch true
+  tags:
+    - gilza-com-prod
+  only:
+    - master
+  when: manual

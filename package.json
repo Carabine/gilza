@@ -1,0 +1,40 @@
+{
+  "name": "gilza-backend",
+  "version": "1.0.0",
+  "description": "Pg-generator is used to generate models. Note that it's installed globally",
+  "main": "index.js",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "axios": "^0.20.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cls-hooked": "^4.2.2",
+    "connect-redis": "^4.0.4",
+    "cookie": "^0.4.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "eventsource": "^1.0.7",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "express-fileupload": "^1.1.7-alpha.3",
+    "express-session": "^1.17.1",
+    "log4js": "^6.3.0",
+    "nodemailer": "^6.4.11",
+    "pg": "^8.2.1",
+    "pg-generator": "^4.8.3",
+    "redis": "^3.0.2",
+    "sequelize": "^5.21.13",
+    "sharp": "^0.26.1",
+    "uuid": "^8.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.gilza.com/video-service/backend.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
